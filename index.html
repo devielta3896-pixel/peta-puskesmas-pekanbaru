@@ -262,36 +262,48 @@
     .leaflet-top.leaflet-left {
         z-index: 2500 !important;
     }
-
 /* ══════════════════════════════════════
-      LEGENDA (VERSI NYAMAN / LEBIH BESAR)
+      LEGENDA (PROPORSIONAL & AMAN)
    ══════════════════════════════════════ */
 #peta-legenda {
     position: fixed;
-    bottom: 10px;
-    left: 10px;
+    bottom: 15px;
+    left: 15px;
     z-index: 1500;
     background: var(--surface);
     backdrop-filter: blur(12px);
-    border-radius: 14px; /* Kembali mendekati 16px awal */
+    border-radius: 16px; /* Kembali ke ukuran rounded awal */
     box-shadow: var(--shadow-lg);
     font-family: var(--font);
-    min-width: 165px;    
-    max-width: 185px;    /* Sedikit di bawah 200px awal, pas untuk teks lebih besar */
-    max-height: calc(100vh - 120px);
-    overflow-y: auto;
+    
+    /* Lebar kita kembalikan ke ukuran awal agar teks tidak terpotong */
+    min-width: 180px;
+    max-width: 200px;
+    
+    /* KUNCI UTAMA: Membatasi tinggi agar tidak menabrak fitur di atasnya */
+    max-height: 420px; 
+    overflow-y: auto; /* Jika layar kekecilan, box ini akan otomatis bisa di-scroll */
+    
     border: 1px solid var(--border);
-    overflow: hidden;
+}
+
+/* Mengatur scrollbar internal legenda agar tetap terlihat rapi dan tipis */
+#peta-legenda::-webkit-scrollbar {
+    width: 4px;
+}
+#peta-legenda::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
 }
 
 .legenda-header {
     background: linear-gradient(135deg, var(--primary-dk), var(--primary));
-    padding: 11px 15px 9px; /* Terasa lebih lega dan premium */
+    padding: 12px 14px 10px; /* Kembali ke ukuran nyaman */
     display: flex; align-items: center; gap: 8px;
 }
 
 .legenda-header-icon {
-    width: 19px; height: 19px; 
+    width: 20px; height: 20px; /* Kembali diperbesar */
     background: rgba(255,255,255,0.2);
     border-radius: 7px;
     display: flex; align-items: center; justify-content: center;
@@ -302,25 +314,26 @@
 }
 
 .legenda-header-title {
-    font-size: 12.5px; font-weight: 800; color: white; /* Hampir seukuran kode awal (13px) */
+    font-size: 13px; font-weight: 800; color: white; /* Kembali diperbesar */
     letter-spacing: 0.01em;
 }
 
 .legenda-header-sub {
-    font-size: 10px; color: rgba(255,255,255,0.7); /* Kembali ke ukuran normal */
+    font-size: 10px; color: rgba(255,255,255,0.7);
     font-family: var(--font-body);
 }
 
+/* Jarak padding body dirapatkan sedikit agar menghemat tinggi vertical */
 .legenda-body { 
-    padding: 11px 12px 10px; 
+    padding: 10px 12px 10px; 
 }
 
 .leg-section-label {
-    font-size: 9px; font-weight: 700; /* Kembali ke ukuran standar awal */
+    font-size: 9px; font-weight: 700;
     color: var(--primary);
     text-transform: uppercase;
-    letter-spacing: 0.09em;
-    margin: 6px 0 5px;
+    letter-spacing: 0.08em;
+    margin: 6px 0 5px; /* Jarak section tetap aman */
     display: flex; align-items: center; gap: 5px;
 }
 .leg-section-label::after {
@@ -331,13 +344,14 @@
     border-radius: 1px;
 }
 
+/* Merapatkan jarak vertikal antar baris agar box tidak terlalu memanjang ke bawah */
 .leg-row {
-    display: flex; align-items: center; gap: 9px;
-    margin-bottom: 6px; 
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 5px; /* Sedikit dirapatkan dari 7px */
 }
 
 .leg-marker {
-    width: 20px; height: 20px; /* Pin marker terlihat jelas */
+    width: 22px; height: 22px; /* Kembali diperbesar sesuai kode awal */
     border-radius: 50% 50% 50% 0;
     transform: rotate(-45deg);
     display: flex; align-items: center; justify-content: center;
@@ -349,47 +363,48 @@
 }
 
 .leg-line-dashed {
-    width: 25px; border-top: 2.2px dashed #666; /* Lebih panjang dan tegas */
+    width: 24px; border-top: 2.5px dashed #666; 
     flex-shrink: 0;
 }
 .leg-line-solid {
-    width: 25px; border-top: 2.8px solid #111;
+    width: 24px; border-top: 3px solid #111;
     flex-shrink: 0;
 }
 .leg-fill-box {
-    width: 25px; height: 13px; /* Kotak warna kembali menonjol */
-    border-radius: 2.5px;
+    width: 24px; height: 13px; 
+    border-radius: 3px;
     flex-shrink: 0;
 }
+
 .leg-text {
-    font-size: 11.5px; font-weight: 600; /* Teks sangat jelas dibaca */
+    font-size: 12px; font-weight: 600; /* Kembali ke ukuran awal yang jelas dibaca */
     color: #2d2d2d; font-family: var(--font-body);
 }
 
 .leg-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 9px 0;
+    margin: 6px 0; /* Jarak divider dirapatkan */
 }
 
 /* Kompas */
 .leg-compass { 
     display: flex; 
     justify-content: center; 
-    margin: 7px 0; 
+    margin: 4px 0; /* Dihemat spasisinya */
 }
 .leg-compass svg, .leg-compass img {
-    max-width: 28px; 
+    max-width: 24px; 
     height: auto;
 }
 
-/* Sumber */
+/* Bagian Sumber & Kelompok dirapatkan agar tidak memakan ruang bawah */
 .leg-sumber {
     background: var(--primary-lt);
     border-radius: 6px;
-    padding: 6px 9px;
-    margin-top: 6px;
-    font-size: 8.8px; 
+    padding: 6px 8px;
+    margin-top: 4px;
+    font-size: 8.5px; /* Ukuran teks info tetap ringkas agar hemat tempat */
     color: #444;
     line-height: 1.2;
     font-family: var(--font-body);
