@@ -266,6 +266,9 @@
     /* ══════════════════════════════════════
        LEGENDA
     ══════════════════════════════════════ */
+/* ══════════════════════════════════════
+      LEGENDA (VERSI PAS / MID-SIZE)
+   ══════════════════════════════════════ */
 #peta-legenda {
     position: fixed;
     bottom: 10px;
@@ -273,11 +276,11 @@
     z-index: 1500;
     background: var(--surface);
     backdrop-filter: blur(12px);
-    border-radius: 12px; /* Dikecilkan dari 16px */
+    border-radius: 12px;
     box-shadow: var(--shadow-lg);
     font-family: var(--font);
-    min-width: 140px;    /* Dikecilkan dari 180px */
-    max-width: 165px;    /* Dikecilkan dari 200px */
+    min-width: 150px;    /* Sedikit lebih longgar dari versi ultra */
+    max-width: 175px;    /* Tetap ramah space dibanding 200px awal */
     max-height: calc(100vh - 120px);
     overflow-y: auto;
     border: 1px solid var(--border);
@@ -286,42 +289,41 @@
 
 .legenda-header {
     background: linear-gradient(135deg, var(--primary-dk), var(--primary));
-    padding: 8px 12px 6px; /* Dikecilkan dari 12px 16px 10px */
-    display: flex; align-items: center; gap: 6px;
+    padding: 10px 14px 8px; /* Lebih proporsional */
+    display: flex; align-items: center; gap: 7px;
 }
 
 .legenda-header-icon {
-    width: 16px; height: 16px; /* Dikecilkan dari 20px x 20px */
+    width: 18px; height: 18px; 
     background: rgba(255,255,255,0.2);
-    border-radius: 6px;       /* Dikecilkan dari 8px */
+    border-radius: 6px;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
 }
-/* Jika icon di dalamnya berupa SVG, pastikan ukurannya ikut mengecil */
 .legenda-header-icon svg {
     width: 11px; height: 11px;
 }
 
 .legenda-header-title {
-    font-size: 11px; font-weight: 800; color: white; /* Dikecilkan dari 13px */
+    font-size: 12px; font-weight: 800; color: white; /* Naik sedikit dari 11px */
     letter-spacing: 0.01em;
 }
 
 .legenda-header-sub {
-    font-size: 9px; color: rgba(255,255,255,0.7); /* Dikecilkan dari 10px */
+    font-size: 9.5px; color: rgba(255,255,255,0.7);
     font-family: var(--font-body);
 }
 
 .legenda-body { 
-    padding: 8px 10px 8px; /* Dikecilkan dari 12px 12px 10px */
+    padding: 10px 11px 9px; 
 }
 
 .leg-section-label {
-    font-size: 8px; font-weight: 700; /* Dikecilkan dari 9px */
+    font-size: 8.5px; font-weight: 700;
     color: var(--primary);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin: 4px 0 4px; /* Dikecilkan dari 6px 0 5px */
+    margin: 5px 0 4px;
     display: flex; align-items: center; gap: 4px;
 }
 .leg-section-label::after {
@@ -333,67 +335,64 @@
 }
 
 .leg-row {
-    display: flex; align-items: center; gap: 8px; /* Dikecilkan dari 9px */
-    margin-bottom: 5px; /* Dikecilkan dari 7px */
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 6px; 
 }
 
 .leg-marker {
-    width: 16px; height: 16px; /* Dikecilkan dari 22px x 22px */
+    width: 18px; height: 18px; /* Ukuran pin pas, tidak terlalu mikro */
     border-radius: 50% 50% 50% 0;
     transform: rotate(-45deg);
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
 }
-/* Menyesuaikan ukuran icon di dalam marker */
 .leg-marker svg { 
     transform: rotate(45deg); 
-    width: 10px; height: 10px; 
+    width: 9px; height: 9px; 
 }
 
 .leg-line-dashed {
-    width: 20px; border-top: 2px dashed #666; /* Lebar dikecilkan dari 28px, tebal dari 2.5px */
+    width: 22px; border-top: 2px dashed #666; 
     flex-shrink: 0;
 }
 .leg-line-solid {
-    width: 20px; border-top: 2px solid #111; /* Lebar dikecilkan dari 28px, tebal dari 3px */
+    width: 22px; border-top: 2.5px solid #111;
     flex-shrink: 0;
 }
 .leg-fill-box {
-    width: 20px; height: 10px; /* Dikecilkan dari 28px x 14px */
+    width: 22px; height: 11px; 
     border-radius: 2px;
     flex-shrink: 0;
 }
 .leg-text {
-    font-size: 10px; font-weight: 600; /* Dikecilkan dari 12px */
+    font-size: 11px; font-weight: 600; /* Teks naik ke 11px agar lebih mudah dibaca */
     color: #2d2d2d; font-family: var(--font-body);
 }
 
 .leg-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 6px 0; /* Dikecilkan dari 10px */
+    margin: 8px 0;
 }
 
 /* Kompas */
 .leg-compass { 
     display: flex; 
     justify-content: center; 
-    margin: 4px 0; /* Dikecilkan dari 8px */
+    margin: 6px 0; 
 }
-/* Memastikan jika kompas menggunakan SVG/Citra ukurannya ikut proporsional */
 .leg-compass svg, .leg-compass img {
-    /* sesuaikan dimensi max kompas jika diperlukan, misal: */
-    max-width: 30px; 
+    max-width: 26px; 
     height: auto;
 }
 
 /* Sumber */
 .leg-sumber {
     background: var(--primary-lt);
-    border-radius: 5px; /* Dikecilkan dari 7px */
-    padding: 5px 7px;   /* Dikecilkan dari 7px 9px */
-    margin-top: 5px;    /* Dikecilkan dari 7px */
-    font-size: 8px;     /* Dikecilkan dari 9px */
+    border-radius: 6px;
+    padding: 6px 8px;
+    margin-top: 6px;
+    font-size: 8.5px; 
     color: #444;
     line-height: 1.2;
     font-family: var(--font-body);
